@@ -45,14 +45,17 @@ plt.plot(x_B_rA[0,:],x_B_rA[1,:],'k')
 
 #Annotating the points.
 
-plt.annotate("A",A,xytext=(0,5),textcoords="offset points",ha = 'right')
-plt.annotate("B",B,xytext=(0,5),textcoords="offset points",ha = 'right')
+plt.annotate("A",A,xytext=(0,5),textcoords="offset points")
+plt.annotate("B",B,xytext=(0,5),textcoords="offset points")
 plt.annotate("C",C,xytext=(0,5),textcoords="offset points",ha = 'right')
-plt.annotate("D",D,xytext=(0,5),textcoords="offset points",ha = 'right')
-plt.annotate("B'",B_r,xytext=(0,5),textcoords="offset points",ha = 'right')
-plt.annotate("C'",C_r,xytext=(0,5),textcoords="offset points",ha = 'right')
-plt.annotate("D'",D_r,xytext=(0,5),textcoords="offset points",ha = 'right')
-
+plt.annotate("D",D,xytext=(0,5),textcoords="offset points")
+plt.annotate("B'",B_r,xytext=(0,5),textcoords="offset points")
+plt.annotate("C'",C_r,xytext=(0,5),textcoords="offset points",ha = 'left')
+plt.annotate("D'",D_r,xytext=(0,5),textcoords="offset points")
+#scale and range.
+plt.xlim([-5,5])
+plt.ylim([-8,8])
+plt.xticks(range(-5,5,1))
+plt.yticks(range(-8,8,1))
 plt.title('ARROW HEAD')
-plt.savefig("../figs/plot.png")
 plt.show()
