@@ -1,6 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
-
+from numpy import linalg as LA
 def line_gen(A,B):
     len =10
     dim = A.shape[0]
@@ -10,17 +10,25 @@ def line_gen(A,B):
         temp1 = A + lam_1[i]*(B-A)
         x_AB[:,i]= temp1.T
     return x_AB
+# Function for the reflection of a point about a plane.
+def Ref(c,n,P):
+    R = P + 2*(c-n@P)/(LA.norm(n)**2)*n
+    return R
+    
+    
 # Representing the point vectors using numpy array.
 A = np.array([0,5])
 B = np.array([3,0])
 C = np.array([1,0])
 D = np.array([1,-5])
-# Reflection matrix used to find the points of reflection about y axis.
-Ref_M = np.array([[-1,0],[0,1]])
 
-B_r = B@(Ref_M)
-C_r = C@(Ref_M)
-D_r = D@(Ref_M)
+# For Y axis(x=0)
+c=0
+n=np.array([1,0])
+#Using the Ref function to get points of reflections of B,C,D about x=0.
+B_r = Ref(c,n,B)
+C_r = Ref(c,n,C)
+D_r = Ref(c,n,D)
 
 #Generating lines
 x_AB = line_gen(A,B)
