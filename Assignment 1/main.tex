@@ -248,8 +248,11 @@ Use a graph sheet for this question.
         \item Join the points A, B, C, D, D', C', B', A in order and give a name to the closed figure ABCDD'C'B'.
         \end{enumerate}
 \section*{Solution:}
-\begin{enumerate}[label=(\arabic*)]
-    \item First we will plot the points A, B, C and D which is shown in plot section.
+\begin{enumerate}[label=\thesection.\arabic*.,ref=\thesection.\theenumi]
+\numberwithin{equation}{enumi}
+\numberwithin{figure}{enumi}
+\numberwithin{table}{enumi}
+    \item First we will plot the points A, B, C and D which is shown in the Fig $\ref{Fig1}$ in the plot section.
     \item Now to get points of reflections of 
             \begin{align}
                   \vec{B}&=\myvec{3\\0}
@@ -296,5 +299,6 @@ Use a graph sheet for this question.
         \centering
      \includegraphics[width=\columnwidth]{plot.png}
      \caption{Arrow Head}
+      \label{Fig1}
 \end{figure} 
 \end{document}
