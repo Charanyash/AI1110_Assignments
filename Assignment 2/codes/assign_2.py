@@ -35,6 +35,7 @@ plt.xlabel('$x$')
 plt.ylabel('$y$')
 plt.legend(loc='best')
 plt.grid()
+plt.savefig("./Figure_1")
 
 
 plt.figure(2)
@@ -43,5 +44,6 @@ plt.xlabel('$x$')
 plt.ylabel('$y$')
 plt.legend(loc='best')
 plt.grid()
+plt.savefig("./Figure_2")
 plt.show()
 
