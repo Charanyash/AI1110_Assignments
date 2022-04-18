@@ -45,5 +45,6 @@ plt.ylabel('$y$')
 plt.legend(loc='best')
 plt.grid()
 plt.savefig("../Figs/Figure_2")
+
 plt.show()
 
