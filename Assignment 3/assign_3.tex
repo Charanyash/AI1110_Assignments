@@ -237,17 +237,17 @@
 \bigskip
 
 \begin{abstract}
-This document provides the solution of Assignment 3 (NCERT CLASS 9 Statistics Exercise 14.4 Q.2)
+ This document provides the solution of Assignment 3 (NCERT CLASS 9 Statistics Exercise 14.4 Q.2)
 \end{abstract}
 
 \textbf{Question Exercise 14.4.2 :}
-In a mathematics test given to 15 students, the following marks (out of 100) are recorded:
+ In a mathematics test given to 15 students, the following marks (out of 100) are recorded:
        \begin{table}[ht!]
         \input{tables/table1}
         \caption{}
         \label{table:table 1}
        \end{table}\\
-Find the mean, median and mode of these scores.\\
+ Find the mean, median and mode of these scores.\\
 \textbf{Solution :}
     \begin{enumerate}
        \item \underline{Mean of the scores} : The number of students scoring a certain score is called as frequency of that score. For instance, 2 students got 52 marks then frequency of 52 marks will be 2. With this knowledge we can construct a frequency distribution table as shown below,   
@@ -259,14 +259,14 @@ Find the mean, median and mode of these scores.\\
  Using this frequency distribution we will find mean(m) of the data by vector approach.
  We know that,
 
-            \begin{align}
+             \begin{align}
                  m &= \frac{\vec{f}^{\top}\vec{x}}{\vec{1}^{\top}\vec{f}}
              \end{align}
  where,$\vec{f}$ is the frequency vector and $\vec{x}$ is the class marks vector.We can get these vectors from Table \ref{table:table 2}.
            On solving,
-               \begin{align}
-                 m&= 54.8
-               \end{align}
+             \begin{align}
+                m&= 54.8
+             \end{align}
                           
  Hence, the mean of the scores is 54.8.
        \item \underline{Median of the scores}: To find the median we will arrange the scores of students in ascending order,
@@ -279,7 +279,7 @@ Find the mean, median and mode of these scores.\\
   In this case, the number of observations is odd (15) , so the median will be $\frac{15+1}{2}^{th} =8^{th}$  observation.
              \begin{align}
                \implies median &= 52
-              \end{align}
+             \end{align}
   Hence, median of scores will be 52.
        \item \underline{Mode of scores}: To find mode of the scores,from Table \ref{table:table 2} we see that $52$ occur maximum number of times in the data (frequency = 3),
              \begin{align}
