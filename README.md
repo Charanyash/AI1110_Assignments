@@ -1,1 +1,2 @@
-# AI1110_Assignments
+# AI1110_Assignments_Solutions
+   
