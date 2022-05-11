@@ -38,11 +38,11 @@ print("The theoritical probability that the student has opted NSS but not NCC :"
 #Experimental probabilities.
 x = np.random.randint(0,2,size =(N,2))# Each array represents [X=x,Y=y] where X,Y are random variables.
 
-NCC = np.array([i for i in x if i[0] == 1])#opted for NCC
+c_NCC = np.array([i for i in x if i[0] == 1])#opted for NCC
 
-NSS = np.array([i for i in x if i[1] == 1])#opted for NSS
+c_NSS = np.array([i for i in x if i[1] == 1])#opted for NSS
 
-NCC_and_NSS = np.array([i for i in x if i[0] == 1 and i[1] == 1])# opted for NCC and NSS.
+c_NCC_and_NSS = np.array([i for i in x if i[0] == 1 and i[1] == 1])# opted for NCC and NSS.
 
 pr_NCC = (float)(len(NCC))/N
 
