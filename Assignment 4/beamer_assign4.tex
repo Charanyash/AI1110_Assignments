@@ -1,0 +1,162 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Welcome to Overleaf --- just edit your LaTeX on the left,
+% and we'll compile it for you on the right. If you open the
+% 'Share' menu, you can invite other users to edit at the same
+% time. See www.overleaf.com/learn for more info. Enjoy!
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+% Inbuilt themes in beamer
+\documentclass{beamer}
+
+% Theme choice:
+\usetheme{CambridgeUS}
+\setbeamertemplate{caption}[numbered]{}
+
+\usepackage{enumitem}
+\usepackage{tfrupee}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{gensymb}
+\usepackage{graphicx}
+\usepackage{txfonts}
+
+\def\inputGnumericTable{}
+
+\usepackage[latin1]{inputenc}                                 
+\usepackage{color}                                            
+\usepackage{array}                                            
+\usepackage{longtable}                                        
+\usepackage{calc}                                             
+\usepackage{multirow}                                         
+\usepackage{hhline}                                           
+\usepackage{ifthen}
+\usepackage{caption} 
+\captionsetup[table]{skip=3pt}  
+\providecommand{\pr}[1]{\ensuremath{\Pr\left(#1\right)}}
+\providecommand{\brak}[1]{\ensuremath{\left(#1\right)}}
+\providecommand{\cbrak}[1]{\ensuremath{\left\{#1\right\}}}
+\renewcommand{\thefigure}{\arabic{table}}
+\renewcommand{\thetable}{\arabic{table}}    
+
+
+% Title page details: 
+\title{AI1110 : Probability and Random Variables}
+\subtitle{Assignment 4} 
+\author{Mannem Charan(AI21BTECH11019)}
+\date{\today}
+
+
+\begin{document}
+% Title page frame
+\begin{frame}
+    \titlepage 
+\end{frame}
+
+
+% Outline frame
+\begin{frame}{Outline}
+    \tableofcontents
+\end{frame}
+
+
+% Lists frame
+\section{Question}
+\begin{frame}{Question}
+ In a class of 60 students, 30 opted for NCC, 32 opted for NSS and 24 opted for both NCC and NSS. If one of these students is selected at random, find the probability that
+\begin{enumerate}[label = (\alph{enumi})]
+    \item The student opted for NCC or NSS.
+    \item The student has opted neither NCC nor NSS.
+    \item The student has opted NSS but not NCC.
+\end{enumerate}
+\end{frame}
+
+
+% Blocks frame
+\section{Solution}
+\subsection{Classifying the data}
+\begin{frame}{Solution : Classifying the data}
+        The given data can be represented as,
+	        \begin{table}[ht!]
+        \input{tables/data.tex}
+        \caption{}
+        \label{table:table 1}
+       \end{table}
+  \end{frame}
+\subsection{Defining the Random Variables}
+\begin{frame}{ Solution : Defining the Random Variables}
+  Let us define random variables $X,Y, where X,Y \in  \cbrak{0,1}$ ,such that
+        \begin{table}[ht!]
+        \input{tables/randomvariable.tex}
+        \caption{}
+        \label{table:table 2}
+       \end{table}
+ \end{frame}
+   
+        From Table \ref{table:table 1} we can write,
+          \begin{align}
+               \pr{X = 1} &= \frac{30}{60} \\
+                               &=\frac{1}{2}\\
+               \pr{Y = 1} &= \frac{32}{60} \\
+                               &= \frac{8}{15}\label{eq:4}\\
+               \pr{\brak{X = 1}\brak{Y=1}} &= \frac{24}{60}\\
+                                                         &= \frac{2}{5}\label{eq:6}
+          \end{align}
+ \subsection{Part 1}
+     
+\begin{frame}{Solution : Part 1}
+      The probability of the event "the student opted for NCC or NSS" can be described as $\pr{\brak{X = 1} + \brak{Y = 1}}$. In other words, either of random variables 
+                $X,Y$ should be equal to 1.
+                  
+                   \begin{equation}
+                   \begin{split}
+                      \pr{\brak{X = 1} + \brak{Y = 1}} = \pr{X=1}+\pr{Y=1}\\
+                                                                                    -\pr{\brak{X = 1}\brak{Y=1}}
+                    \end{split}
+                   \end{equation}
+                  \begin{align}
+                        \implies      &= \frac{1}{2} + \frac{8}{15}  - \frac{2}{5}\\
+                        \implies      &= \frac{19}{30}.\\
+                    \therefore \pr{\brak{X = 1} + \brak{Y = 1}} &= \frac{19}{30}.\label{eq:10}
+                    \end{align}
+\end{frame} 
+\subsection{Part 2}
+
+\begin{frame}{Solution : Part 2}
+       The probability of the event "the student has opted neither NCC nor NSS" can be described as "$ \pr{\brak{X=0}\brak{Y=0}}$ ".In other words,both the random variables $X,Y$ should be 0.  
+                 Now we can write,
+                 \begin{align}
+                   \pr{\brak{X=0}\brak{Y=0}} &= 1 - \pr{\brak{X = 1} + \brak{Y = 1}}
+                 \end{align}
+                Using \eqref{eq:10}
+                 \begin{align}
+	           \pr{\brak{X=0}\brak{Y=0}} &= 1 - \frac{19}{30}\\
+                                                            &= \frac{11}{30}                        
+                 \end{align}
+\end{frame}
+
+\subsection{Part 3}
+
+\begin{frame}{Solution : Part 3}
+       The probability of the event "the student has opted NSS but not NCC" can be described as  "$ \pr{\brak{Y=1}\brak{ X = 0}}$". 
+                We can write 
+                 \begin{equation}
+                 \begin{split}
+                   \pr{\brak{Y=1}\brak{ X = 0}} = \pr{Y = 1} \\
+                                                            - \pr{\brak{Y = 1}\brak{X = 1}}
+                 \end{split}
+                 \end{equation}
+                 \begin{align}
+                                                  &= \pr{Y = 1} -  \pr{\brak{X = 1}\brak{Y=1}}
+                 \end{align}
+               Using \eqref{eq:4} and \eqref{eq:6},
+                 \begin{align}
+	            \pr{\brak{Y=1}\brak{ X = 0}}  &=  \frac{8}{15} -  \frac{2}{5}\\
+                                                                  & = \frac{2}{15}\\
+                   \therefore  \pr{\brak{Y=1}\brak{ X = 0}} &= \frac{2}{15}.
+                 \end{align}
+\end{frame}
+    \end{document}
