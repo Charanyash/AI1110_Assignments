@@ -44,11 +44,11 @@ c_NSS = np.array([i for i in x if i[1] == 1])#opted for NSS
 
 c_NCC_and_NSS = np.array([i for i in x if i[0] == 1 and i[1] == 1])# opted for NCC and NSS.
 
-pr_NCC = (float)(len(NCC))/N
+pr_NCC = (float)(len(c_NCC))/N
 
-pr_NSS = (float)(len(NSS))/N
+pr_NSS = (float)(len(c_NSS))/N
 
-pr_NCC_and_NSS  =  (float)(len(NCC_and_NSS))/N
+pr_NCC_and_NSS  =  (float)(len(c_NCC_and_NSS))/N
 
 pr_NCC_or_NSS = pr_NCC + pr_NSS - pr_NCC_and_NSS
 
