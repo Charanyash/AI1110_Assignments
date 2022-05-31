@@ -1,0 +1,161 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Welcome to Overleaf --- just edit your LaTeX on the left,
+% and we'll compile it for you on the right. If you open the
+% 'Share' menu, you can invite other users to edit at the same
+% time. See www.overleaf.com/learn for more info. Enjoy!
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Inbuilt themes in beamer
+\documentclass{beamer}
+
+% Theme choice:
+\usetheme{CambridgeUS}
+\setbeamertemplate{caption}[numbered]{}
+
+\usepackage{enumitem}
+\usepackage{tfrupee}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{gensymb}
+\usepackage{graphicx}
+\usepackage{txfonts}
+
+\def\inputGnumericTable{}
+
+\usepackage[latin1]{inputenc}                                 
+\usepackage{color}                                            
+\usepackage{array}                                            
+\usepackage{longtable}                                        
+\usepackage{calc}                                             
+\usepackage{multirow}                                         
+\usepackage{hhline}                                           
+\usepackage{ifthen}
+\usepackage{caption} 
+\captionsetup[table]{skip=3pt}  
+\providecommand{\pr}[1]{\ensuremath{\Pr\left(#1\right)}}
+\providecommand{\sbrak}[1]{\ensuremath{{}\left[#1\right]}}
+\providecommand{\brak}[1]{\ensuremath{\left(#1\right)}}
+\providecommand{\cbrak}[1]{\ensuremath{\left\{#1\right\}}}
+\renewcommand{\thetable}{\arabic{table}}
+\providecommand{\abs}[1]{\left\vert#1\right\vert}
+
+\let\vec\mathbf
+
+
+% Title page details: 
+\title{AI1110 : Probability and Random Variables}
+\subtitle{Assignment 7} 
+\author{Mannem Charan(AI21BTECH11019)}
+\date{\today}
+
+
+\begin{document}
+% Title page frame
+\begin{frame}
+    \titlepage 
+\end{frame}
+
+
+% Outline frame
+\begin{frame}{Outline}
+    \tableofcontents
+\end{frame}
+
+
+% Lists frame
+\section{Question}
+\begin{frame}{Question}
+ The random variable $x$ takes the values $0,1,........$ with $\pr{x=k} = p_{k}$. Show that if $y=\brak{x-1}U\brak{x-1}$ then
+   \begin{align}
+                   \Gamma_{y}\brak{z} &= p_{0} + z^{-1}\sbrak{\Gamma_{x}\brak{z}-p_{0}} \nonumber\\
+                     \eta_{y} &= \eta_{x}-1+p_{0} \nonumber  \\
+                    E\cbrak{y^{2}} &= E\cbrak{x^{2}} - 2\eta_{x} + 1 - p_{0}\nonumber
+            \end{align}
+   \end{frame} 
+
+\section{Solution}
+\begin{frame}{Solution}
+ Given that,
+   \begin{align}
+       y &= \brak{x-1}U\brak{x-1}
+    \end{align}
+where $U\brak{x-1}$ is step unit function.\\
+     So random variable $y$ , can be wriitten as,
+     \begin{equation*}
+        y =      \begin{cases}
+                        x-1   &, x > 1\\
+                        0     &, 0\leq x \leq 1
+                   \end{cases}  
+      \end{equation*}
+Now 
+    \begin{align}
+          \pr{y=0} &= \pr{x=0} + \pr{x=1}\\
+                        &= p_{0} + p_{1}\label{eq:3}
+     \end{align}
+\end{frame}
+\begin{frame}
+And 
+      \begin{align}
+         \pr{y=k} = \pr{x=k+1} = p_{k+1} \brak{k \geq 1}\label{eq:4}
+       \end{align}
+The moment generating function $\Gamma_{x}\brak{z}$ for any lattice type random variable $x$ is defined as,
+      \begin{align}
+         \Gamma_{x}\brak{z} &= \sum_{k=-\infty}^{\infty}\pr{x=k}z^{k}
+      \end{align}
+In this case,
+      \begin{align}
+         \Gamma_{x}\brak{z} &= \sum_{k=0}^{\infty}p_{k}z^{k}\\
+                                        &= p_{0} + p_{1}z + p_{2}z^2 +.... \label{eq:7}
+      \end{align}
+\end{frame}
+\begin{frame}
+Now writing the moment generating function for random variable $y$,
+     \begin{align}
+         \Gamma_{y}\brak{z} &= \sum_{k=0}^{\infty}\pr{y=k}z^{k}\\
+                                         &= \pr{y=0} + \sum_{k=1}^{\infty}\pr{y=k}z^k
+      \end{align}
+ Using \eqref{eq:3},\eqref{eq:4},\eqref{eq:7},
+      \begin{align}
+              \implies       &= p_{0} + p_{1} + \sum_{k=1}^{\infty}p_{k+1}z^{k}\\              
+                                &= p_{0} + z^{-1}\cbrak{\Gamma_{x}\brak{z} - p_{0}}
+      \end{align}
+And for any discrete integer type random variable $x$,
+      \begin{align}
+             \eta_{x} &= \sum_{k = -\infty}^{\infty}k\pr{x=k}
+     \end{align}
+\end{frame}
+\begin{frame}
+In this case,
+     \begin{align}
+           \eta_{x} &= \sum_{k=0}^{\infty}kp_{k}
+     \end{align}
+For random variable $y$ we can write,
+     \begin{align}
+           \eta_{y}  &= \sum_{k=1}^{\infty}kp_{k+1}\\
+                         &= \sum_{k=1}^{\infty}kp_{k} - \sum_{k=1}^{\infty}p_{k}\\
+                         &= \eta_{x} -\brak{1 - p_{0}}\\
+                         &= \eta_{x} - 1 + p_{0}
+     \end{align}
+For any random variable $x$,
+     \begin{align}
+           E\cbrak{x^{2}} &= \sum_{k=-\infty}^{k=\infty}k^{2}\pr{x=k}
+     \end{align}
+In this case,
+     \begin{align}
+            E\cbrak{x^{2}} &= \sum_{k=0}^{k=\infty}k^{2}p_{k}
+    \end{align}
+\end{frame}
+\begin{frame}
+Now for random variable $y$,
+    \begin{align}
+            E\cbrak{y^{2}} &= \sum_{k=1}^{k=\infty}k^{2}p_{k+1}\\
+                                   &= \sum_{r=1}^{r=\infty}\brak{r-1}^{2}p_{r}\\
+                                   &= \sum_{r=1}^{r=\infty}\brak{r^2-2r+1}p_{r}\\
+                                   &= \sum_{r=1}^{r=\infty}r^2p_{r} -2 \sum_{r=1}^{r=\infty}rp_{r} +  \sum_{r=1}^{r=\infty}p_{r}\\
+                                   & = E\cbrak{x^{2}} -2\eta_{x} + \brak{1-p_{0}}\\
+                                   & =  E\cbrak{x^{2}} -2\eta_{x} + 1-p_{0}
+    \end{align}
+\end{frame}
+\end{document}
