@@ -1,0 +1,102 @@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Welcome to Overleaf --- just edit your LaTeX on the left,
+% and we'll compile it for you on the right. If you open the
+% 'Share' menu, you can invite other users to edit at the same
+% time. See www.overleaf.com/learn for more info. Enjoy!
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Inbuilt themes in beamer
+\documentclass{beamer}
+
+% Theme choice:
+\usetheme{CambridgeUS}
+\setbeamertemplate{caption}[numbered]{}
+
+\usepackage{enumitem}
+\usepackage{tfrupee}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{gensymb}
+\usepackage{graphicx}
+\usepackage{txfonts}
+
+\def\inputGnumericTable{}
+
+\usepackage[latin1]{inputenc}                                 
+\usepackage{color}                                            
+\usepackage{array}                                            
+\usepackage{longtable}                                        
+\usepackage{calc}                                             
+\usepackage{multirow}                                         
+\usepackage{hhline}                                           
+\usepackage{ifthen}
+\usepackage{caption} 
+\captionsetup[table]{skip=3pt}  
+\providecommand{\pr}[1]{\ensuremath{\Pr\left(#1\right)}}
+\providecommand{\sbrak}[1]{\ensuremath{{}\left[#1\right]}}
+\providecommand{\brak}[1]{\ensuremath{\left(#1\right)}}
+\providecommand{\cbrak}[1]{\ensuremath{\left\{#1\right\}}}
+\renewcommand{\thetable}{\arabic{table}}
+
+\let\vec\mathbf
+
+
+% Title page details: 
+\title{AI1110 : Probability and Random Variables}
+\subtitle{Assignment 9} 
+\author{Mannem Charan(AI21BTECH11019)}
+\date{\today}
+
+
+\begin{document}
+% Title page frame
+\begin{frame}
+    \titlepage 
+\end{frame}
+
+
+% Outline frame
+\begin{frame}{Outline}
+    \tableofcontents
+\end{frame}
+
+
+% Lists frame
+\section{Question}
+\begin{frame}{Question}
+\textbf{Question exercise 10.27:} Given an SSS process $\mathbf{x}\brak{t}$ with zero mean, power spectrum $S\brak{w}$, and bispectrum $S\brak{u,v}$, we form the process $\mathbf{y}\brak{t} = \mathbf{x}\brak{t} + c$. Show that
+        \begin{align}
+            S_{yyy}\brak{u,v} = S\brak{u,v} + 2\pi c\sbrak{S\brak{u}\delta\brak{v} + S\brak{v}\delta\brak{u}+ S\brak{u}\delta\brak{u+v}} + 4\pi^{2}c^{3}\delta\brak{u}\delta\brak{u}
+        \end{align}
+\end{frame}
+
+\section{Solution}
+\begin{frame}{Solution}
+  		First we will find auto correlation of $y$ process,
+          \begin{align}   
+               R_{yyy}\brak{u,v} &= E\cbrak{ \underline{\mathbf{x}}\brak{t+u} + c \sbrak{ \underline{\mathbf{x}}\brak{t+v} + c}\sbrak{\underline{\mathbf{x}}\brak{t}+c}}\\ 
+                        \implies        &= R\brak{\mathbf{u},\mathbf{v}} + cR\brak{\mathbf{u}} + cR\brak{\mathbf{v}} + cR\brak{\mathbf{u}-\mathbf{v}} + c^{3}      
+          \end{align}
+        We can write above expression since $ E\cbrak{\mathbf{x}\brak{t}} = 0$ as $\mathbf{x}\brak{t}$ is strict sense stationary process. And moreover , we know that
+          \begin{align}
+                 R\brak{\mathbf{u}} \iff 2\pi S\brak{u}\delta\brak{v}\label{eq:3}\\
+                 R\brak{\mathbf{v}} \iff 2\pi \delta\brak{v}S\brak{u}\label{eq:4}\\
+                 c^{3}      \iff 4\pi^{3}\delta\brak{u}\delta\brak{v} \label{eq:5}
+           \end{align}
+     where $\iff$ here represents the fourier transform.And also
+          \begin{align}
+             \int_{-\infty}^{\infty}\int_{-\infty}^{\infty}R\brak{u-v}e^{-j\brak{u\mathbf{u} + v\mathbf{v}}}d\mathbf{u}d\mathbf{v} &= \int_{-\infty}^{\infty}R\brak{\tau}e^{-ju \tau}d\tau\int_{-\infty}^{\infty}e^{-j\brak{u+v}\mathbf{v}}d\mathbf{v}\\
+                                            &= 2\pi S\brak{u}\delta\brak{u+v}\label{eq:7}
+          \end{align}
+  \end{frame}
+  \begin{frame}
+    Using $\eqref{eq:3}$,$\eqref{eq:4}$,$\eqref{eq:5}$,$\eqref{eq:7}$ we can get that,
+      \begin{align}
+            S_{yyy}\brak{u,v} = S\brak{u,v} + 2\pi c\sbrak{S\brak{u}\delta\brak{v} + S\brak{v}\delta\brak{u}+ S\brak{u}\delta\brak{u+v}} + \nonumber\\4\pi^{2}c^{3}\delta\brak{u}\delta\brak{u}
+        \end{align}
+  Hence proved
+   \end{frame}
+\end{document} 
